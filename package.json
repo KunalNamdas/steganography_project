@@ -1,0 +1,11 @@
+{
+  "name": "steganography_project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "jimp": "^0.16.1",
+    "crypto": "^1.0.1"
+  }
+}

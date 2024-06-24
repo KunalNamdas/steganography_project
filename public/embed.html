@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Embed Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333; /* Dark gray text color */
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff; /* White background for form */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for form */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Dark gray text color for labels */
+        }
+
+        input[type="file"],
+        input[type="text"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding and border are included in width */
+        }
+
+        input[type="file"] {
+            cursor: pointer; /* Change cursor to pointer on file input */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Bootstrap blue color */
+            color: #fff; /* White text color */
+            border: none;
+            cursor: pointer; /* Change cursor to pointer on submit button */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Embed Image</h1>
+    <form id="embedForm" action="/embed" method="POST" enctype="multipart/form-data">
+        <label for="carrierImage">Carrier Image:</label>
+        <input type="file" id="carrierImage" name="carrierImage" required><br>
+        <label for="secretImage">Secret Image:</label>
+        <input type="file" id="secretImage" name="secretImage" required><br>
+        <label for="encryptionKey">Encryption Key:</label>
+        <input type="text" id="encryptionKey" name="encryptionKey" required><br>
+        <input type="submit" value="Embed">
+    </form>
+</body>
+</html>
