@@ -1,0 +1,39 @@
+pipeline {
+    agent any  // or specify a label, e.g., agent { label 'dev-server' }
+    
+    stages {
+        stage("code"){
+            steps{
+                git url: "https://github.com/KunalNamdas/steganography_project.git", branch: "main"
+                echo 'bhaiyya code clone ho gaya'
+            }
+        }
+        stage("build and test"){
+            steps{
+                sh "docker build -t steganography-app ."
+                echo 'code build bhi ho gaya'
+            }
+        }
+        stage("scan image"){
+            steps{
+                echo 'image scanning ho gayi'
+            }
+        }
+        stage("push"){
+            steps{
+                withCredentials([usernamePassword(credentialsId:"dockerHub", passwordVariable:"dockerHubPass", usernameVariable:"dockerHubUser")]){
+                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                    sh "docker tag steganography-app:latest ${env.dockerHubUser}/steganography-app:latest"
+                    sh "docker push ${env.dockerHubUser}/steganography-app:latest"
+                    echo 'image push ho gaya'
+                }
+            }
+        }
+        stage("deploy"){
+            steps{
+                sh "docker run -p 3001:3000 -d steganography-app"
+                echo 'deployment ho gayi'
+            }
+        }
+    }
+}
