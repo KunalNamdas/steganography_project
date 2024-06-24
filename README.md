@@ -38,7 +38,5 @@ cd steganography_project
 
 **
 ## Install Dependencies**
-npm install
-
 Run This Project
 node service.js
