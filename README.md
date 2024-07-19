@@ -22,6 +22,10 @@ Steganography is the practice of hiding secret information within another medium
 - AES encryption for secure embedding.
 - User-friendly web interface.
 
+
+![DorkHunter image](image1.png)
+![DorkHunter image](image2.png)
+![DorkHunter image](image3.png)
 ## Requirements
 
 - Node.js
